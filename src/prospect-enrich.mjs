@@ -21,6 +21,7 @@
 
 import { openStore } from "./lib/store.mjs";
 import { merge } from "./lib/evidence.mjs";
+import { sameDomain } from "./prospect-find-email.mjs";
 
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
 
@@ -368,9 +369,13 @@ async function main() {
     if (r.emails.length) withEmail++;
     console.log(`${p.name}\n    ${r.website}${r.emails[0] ? `  |  ${r.emails[0]}` : "  |  no email on the page"}`);
     if (!write) continue;
+    // Same rule as prospect-find-email: an address only counts when it is on the
+    // practice's own domain. A gmail or an agency inbox on the page is left for a
+    // human, never saved as proven, because gate 3 trusts this row.
+    const own = r.emails.find((e) => sameDomain(e, r.website));
     const save = {
       id: p.id, website: r.website,
-      next_action: r.emails[0] ? "Run prospect-recon, then write from the evidence" : "Website found, no email on it. Find a contact.",
+      next_action: own ? "Run prospect-recon, then write from the evidence" : "Website found, no email on it. Find a contact.",
       evidence: merge(p.evidence, [
         { claim: `Website is ${r.website}, confirmed because ${r.proof}.`, source: r.url, checked_on: today, proven: true },
         // The ADDRESS needs its own row with its own URL, because gate 3 in
@@ -378,15 +383,15 @@ async function main() {
         // recorded on the practice's own domain. The mistakes log carries the
         // reason: an LLM lead-finder has invented plausible contact details before, and a
         // plausible wrong address is worse than a missing one.
-        ...(r.emails[0]
+        ...(own
           ? [{
-              claim: `Email ${r.emails[0]} is published on the practice's own website.`,
+              claim: `Email ${own} is published on the practice's own website.`,
               source: r.url, checked_on: today, proven: true,
             }]
           : []),
       ], "enrich"),
     };
-    if (r.emails[0]) save.email = r.emails[0];
+    if (own) save.email = own;
     const { error: e } = await sb.rpc("crm_save", { p: save });
     if (e) console.log(`    FAILED: ${e.message}`);
   }

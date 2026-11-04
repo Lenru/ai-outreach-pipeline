@@ -354,6 +354,11 @@ async function writeEvidence(rows) {
   for (const [site, evidence, clinicians] of rows) {
     const p = bySite.get(site.replace(/^https?:\/\//, "").replace(/\/$/, ""));
     if (!p) { console.log(`  no prospect with website ${site}, skipped`); continue; }
+    // An unreadable site proves nothing, and merging it would drop the earlier
+    // recon rows, including a big-system "Owned by" row that keeps them off the list.
+    if (evidence.length === 1 && !evidence[0].proven && evidence[0].claim.startsWith("Site could not be read")) {
+      console.log(`  ${site}: unreadable this run, kept the earlier evidence`); continue;
+    }
     // MERGE, never assign. Assigning here wiped the decision maker, the
     // confirmed website and the proof of where each email came from, all
     // written by sibling scripts, with no error and no visible symptom beyond

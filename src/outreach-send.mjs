@@ -132,7 +132,12 @@ async function main() {
 
   const { data: list, error } = await sb.rpc("crm_list");
   if (error) throw new Error(`crm_list: ${error.message}`);
-  const bySite = new Map((list || []).map((p) => [bare(p.website), p]));
+  const bySite = new Map();
+  const sharedSite = new Set();
+  for (const p of list || []) {
+    if (bySite.has(bare(p.website))) sharedSite.add(bare(p.website));
+    bySite.set(bare(p.website), p);
+  }
 
   // A preview goes to Noah, so gates 2 and 4 do not apply (he has not asked to
   // stop and he is not the domain's reputation risk). Gates 1 and 3 DO run, and
@@ -184,6 +189,11 @@ async function main() {
   for (const d of drafts) {
     const p = bySite.get(bare(d.website));
     if (!p) { console.log(`SKIP  no prospect for ${d.website}`); skipped++; continue; }
+    // Two records on one website (a group practice, a duplicate) means the wrong
+    // record's touches could be checked for a stop. Refuse rather than guess.
+    if (sharedSite.has(bare(d.website))) {
+      console.log(`SKIP  ${d.website} belongs to more than one prospect; merge them first`); skipped++; continue;
+    }
 
     const touches = everyTouch.filter((t) => t._pid === p.id);
 
