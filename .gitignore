@@ -1,0 +1,6 @@
+.env
+node_modules/
+data/
+drafts.json
+followups-*.json
+NOW.md

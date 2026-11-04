@@ -1,0 +1,12 @@
+{
+  "name": "ai-outreach-pipeline",
+  "version": "1.0.0",
+  "description": "Cold outreach for small healthcare practices where every sentence in the email has to trace back to a fact read off the prospect's own website.",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=20.12" },
+  "scripts": {
+    "test": "node --test",
+    "demo": "node src/outreach-draft.mjs --out=data/drafts.json && node src/outreach-followup.mjs --out=data/followups.json --today=2026-11-04 && node --env-file=example/demo.env src/outreach-send.mjs data/drafts.json && node --env-file=example/demo.env src/outreach-send.mjs data/followups.json"
+  }
+}

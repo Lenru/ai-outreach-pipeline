@@ -1,0 +1,249 @@
+{
+ "prospects": [
+  {
+   "id": 1,
+   "stage": "lead",
+   "do_not_contact": false,
+   "touches": [],
+   "name": "Northside Counseling",
+   "website": "https://northside-counseling.example",
+   "email": "info@northside-counseling.example",
+   "official_name": "Maya Ortiz, PsyD",
+   "official_title": "Owner",
+   "city": "Anytown",
+   "state": "NY",
+   "evidence": [
+    {
+     "claim": "Email info@northside-counseling.example is on the practice's own contact page.",
+     "source": "https://northside-counseling.example/contact",
+     "checked_on": "2026-11-01",
+     "proven": true,
+     "by": "find-email"
+    },
+    {
+     "claim": "Takes bookings through SimplePractice.",
+     "source": "https://northside-counseling.example/",
+     "checked_on": "2026-11-01",
+     "proven": true,
+     "by": "recon"
+    },
+    {
+     "claim": "Decision maker is Maya Ortiz, PsyD, listed as Owner, the authorized official on the practice's federal registry record.",
+     "source": "https://npiregistry.cms.hhs.gov/api/?version=2.1&number=0000000001",
+     "checked_on": "2026-11-01",
+     "proven": true,
+     "by": "officials"
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "stage": "lead",
+   "do_not_contact": false,
+   "touches": [],
+   "name": "Lakeview Psychiatry",
+   "website": "https://lakeview-psychiatry.example",
+   "email": "office@lakeview-psychiatry.example",
+   "official_name": "Sam Patel, MD",
+   "official_title": "Medical Director",
+   "city": "Anytown",
+   "state": "NY",
+   "evidence": [
+    {
+     "claim": "Email office@lakeview-psychiatry.example is on the practice's own contact page.",
+     "source": "https://lakeview-psychiatry.example/contact",
+     "checked_on": "2026-11-01",
+     "proven": true,
+     "by": "find-email"
+    },
+    {
+     "claim": "No sitemap.xml or sitemap_index.xml, and robots.txt names none.",
+     "source": "https://lakeview-psychiatry.example/sitemap.xml",
+     "checked_on": "2026-11-01",
+     "proven": true,
+     "by": "recon"
+    },
+    {
+     "claim": "No robots.txt (404).",
+     "source": "https://lakeview-psychiatry.example/robots.txt",
+     "checked_on": "2026-11-01",
+     "proven": true,
+     "by": "recon"
+    },
+    {
+     "claim": "Homepage title is only \"Home\".",
+     "source": "https://lakeview-psychiatry.example/",
+     "checked_on": "2026-11-01",
+     "proven": true,
+     "by": "recon"
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "stage": "lead",
+   "do_not_contact": false,
+   "touches": [],
+   "name": "Cedar Family Therapy",
+   "website": "https://cedar-family-therapy.example",
+   "email": "hello@cedar-family-therapy.example",
+   "official_name": "Ruth Klein, LMFT",
+   "official_title": "Owner",
+   "city": "Anytown",
+   "state": "NY",
+   "notes": "Address supplied by an LLM lead-finder. Nobody has read it off their site.",
+   "evidence": [
+    {
+     "claim": "Takes bookings through IntakeQ.",
+     "source": "https://cedar-family-therapy.example/",
+     "checked_on": "2026-11-01",
+     "proven": true,
+     "by": "recon"
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "stage": "lead",
+   "do_not_contact": false,
+   "touches": [],
+   "name": "Riverbend Wellness",
+   "website": "https://riverbend-wellness.example",
+   "email": "info@riverbend-wellness.example",
+   "city": "Anytown",
+   "state": "NY",
+   "evidence": [
+    {
+     "claim": "Email info@riverbend-wellness.example is on the practice's own contact page.",
+     "source": "https://riverbend-wellness.example/contact",
+     "checked_on": "2026-11-01",
+     "proven": true,
+     "by": "find-email"
+    },
+    {
+     "claim": "Takes bookings through Calendly.",
+     "source": "https://riverbend-wellness.example/",
+     "checked_on": "2026-11-01",
+     "proven": true,
+     "by": "recon"
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "stage": "lead",
+   "do_not_contact": false,
+   "touches": [],
+   "name": "Summit Behavioral Health",
+   "website": "https://summit-behavioral.example",
+   "email": "intake@summit-behavioral.example",
+   "official_name": "Lena Fox, MD",
+   "official_title": "President",
+   "city": "Anytown",
+   "state": "NY",
+   "evidence": [
+    {
+     "claim": "Email intake@summit-behavioral.example is on the practice's own contact page.",
+     "source": "https://summit-behavioral.example/contact",
+     "checked_on": "2026-11-01",
+     "proven": true,
+     "by": "find-email"
+    },
+    {
+     "claim": "Takes bookings through Zocdoc.",
+     "source": "https://summit-behavioral.example/",
+     "checked_on": "2026-11-01",
+     "proven": true,
+     "by": "recon"
+    },
+    {
+     "claim": "Owned by a large organisation: Example Health System (footer says \"a member of Example Health System\"). Do not email.",
+     "source": "https://summit-behavioral.example/",
+     "checked_on": "2026-11-01",
+     "proven": true,
+     "by": "recon"
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "stage": "contacted",
+   "do_not_contact": false,
+   "touches": [
+    {
+     "kind": "email",
+     "at": "2026-10-26T15:00:00.000Z",
+     "body": "SENT 2026-10-26 from Noah Watson <noah@watsonsmedia.com>\nTo: office@hillcrest-psychology.example\nSubject: where your new clients come from\nResend id: demo-0001\n\nHi Owen,\n\nClients book with you through Jane, but can you tell how each of them found you first? Google, a referral, somewhere else?\n\nI want to set that up for you, so you can see which one is bringing in patients and put your money there.\n\nI've got three things I'd set up first. Reply and I'll send them over.\n\nNoah Watson\nWatson's Media\n\nReply \"stop\" and I won't email you again.\nWatson's Media, 12 Example Road, Anytown, NY 10000"
+    }
+   ],
+   "name": "Hillcrest Psychology",
+   "website": "https://hillcrest-psychology.example",
+   "email": "office@hillcrest-psychology.example",
+   "official_name": "Owen Brooks, LCSW",
+   "official_title": "Owner",
+   "city": "Anytown",
+   "state": "NY",
+   "next_action": "Follow up if no reply",
+   "next_action_due": "2026-11-02",
+   "evidence": [
+    {
+     "claim": "Email office@hillcrest-psychology.example is on the practice's own contact page.",
+     "source": "https://hillcrest-psychology.example/contact",
+     "checked_on": "2026-11-01",
+     "proven": true,
+     "by": "find-email"
+    },
+    {
+     "claim": "Takes bookings through Jane.",
+     "source": "https://hillcrest-psychology.example/",
+     "checked_on": "2026-11-01",
+     "proven": true,
+     "by": "recon"
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "stage": "contacted",
+   "do_not_contact": false,
+   "touches": [
+    {
+     "kind": "email",
+     "at": "2026-10-26T15:05:00.000Z",
+     "body": "SENT 2026-10-26 from Noah Watson <noah@watsonsmedia.com>\nTo: anna@maple-street-therapy.example\nSubject: where your new clients come from\nResend id: demo-0002\n\n(body as sent)"
+    },
+    {
+     "kind": "reply",
+     "at": "2026-10-27T13:12:00.000Z",
+     "body": "REPLY from anna@maple-street-therapy.example\nSubject: Re: where your new clients come from\n\nPlease take me off your list."
+    }
+   ],
+   "name": "Maple Street Therapy",
+   "website": "https://maple-street-therapy.example",
+   "email": "anna@maple-street-therapy.example",
+   "official_name": "Anna Lowe, LCSW",
+   "official_title": "Owner",
+   "city": "Anytown",
+   "state": "NY",
+   "next_action": "Follow up if no reply",
+   "next_action_due": "2026-11-02",
+   "evidence": [
+    {
+     "claim": "Email anna@maple-street-therapy.example is on the practice's own contact page.",
+     "source": "https://maple-street-therapy.example/contact",
+     "checked_on": "2026-11-01",
+     "proven": true,
+     "by": "find-email"
+    },
+    {
+     "claim": "Takes bookings through Jane.",
+     "source": "https://maple-street-therapy.example/",
+     "checked_on": "2026-11-01",
+     "proven": true,
+     "by": "recon"
+    }
+   ]
+  }
+ ],
+ "drafts": []
+}
